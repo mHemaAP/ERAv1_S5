@@ -13,7 +13,7 @@ Few samples in the dataset are shown below.
 
 ### 1. model.py
 
-This file provides the neural network model architecture for image classification. This file consists of 2 classes - 'Net' and 'Net2". Both these are subclasses of `torch.nn.Module` and consists of several convolution and fully connected layers. The `forward` method implements the forward pass of the model, and the `summary` method provides a summary of the model's architecture.
+This file provides the neural network model architecture for image classification. This file consists of 2 classes - 'Net' and 'Net2". Both these are subclasses of `torch.nn.Module` and consists of several convolution and fully connected layers. The `forward` method implements the forward pass of the model, and the `summary` method provides a summary of the model's architecture. The following shows model summary for 'Net' architecture.
 
 ```
 ============================================================================================================================================
