@@ -1,4 +1,4 @@
-# MNIST classification
+# Neural Network Image Classification - MNIST DataSet
 
 ## Description
 
@@ -13,7 +13,7 @@ Few samples in the dataset are shown below.
 
 ### 1. model.py
 
-This file defines the structure of the neural network model used for image classification. The `Net` class is a subclass of `torch.nn.Module` and consists of several convolutional and fully connected layers. The `forward` method implements the forward pass of the model, and the `summary` method provides a summary of the model's architecture.
+This file provides the neural network model architecture for image classification. This file consists of 2 classes - 'Net' and 'Net2". Both these are subclasses of `torch.nn.Module` and consists of several convolution and fully connected layers. The `forward` method implements the forward pass of the model, and the `summary` method provides a summary of the model's architecture.
 
 ```
 ============================================================================================================================================
@@ -38,18 +38,35 @@ Params size (MB): 2.37
 Estimated Total Size (MB): 3.08
 ============================================================================================================================================
 ```
-The `Net2` class is another subclass of `torch.nn.Module` and consists of several convolutional without biases and fully connected layers without biases.
+The `Net2` class consists of several convolution without biases and fully connected layers without biases where as the 'Net' class has layers with biases.
 This files also has train and test functions which return the train loss, train accuracy, test loss and test accuracy respectively. 
 This file also has new code logic comprised in a function get_incorrect_test_predictions to obtain the samples of mis-classifications.
 
 
 ### 2. utils.py
 
-The `utils.py` file contains utility functions used in the project. It includes functions for plotting the model train / test loss/accuracy statistics (function: display_model_stats), displaying the data images (function: display_data), ploting the test incorrect classification predictions (function: plot_test_incorrect_predictions).
+The `utils.py` file contains helper functions that are used throughout the project. These functions provide some common functionalities for data preprocessing, visualization, or any other necessary operations. It includes functions for plotting the model train / test loss/accuracy statistics (function: display_model_stats), displaying the data images (function: display_data), ploting the test incorrect classification predictions (function: plot_test_incorrect_predictions).
 
 ### 3. S5.ipynb
 
-The `S5.ipynb` file is the main script that runs the image classification project. It imports the necessary libraries and modules, sets up the device ('CUDA', 'MPS' or 'CPU') for training, defines data transformations, loads the MNIST dataset, creates data loaders, plots train data images, initializes the model, trains the model, tests the model's performance, and visualizes incorrectly classified examples.
+The `S5.ipynb` file is the main module that runs the image classification activity for MNIST dataset. It contains the code for training and evaluating a neural network model using the MNIST dataset. The file includes the following components:
+
+- Importing necessary libraries and dependencies
+- Mounting Google Drive
+- Setting up the device (CPU or GPU)
+- Defining data transformations for training and testing
+- Loading the MNIST dataset
+- Setting up data loaders
+- Displaying sample data from the training set
+- Defining the neural network model and displaying its summary
+- Training the model using SGD optimizer and cross-entropy loss
+- Displaying model training and testing statistics
+- Plotting incorrect test predictions
+- Defining an alternative neural network model (Net2) and displaying its summary
+
+Please note that this README is dynamically generated and serves as a placeholder. As you make further modifications to the project, remember to update this file accordingly. Provide a brief description of each file, its purpose, and its relevance to the project's functionality.
+
+For more detailed information on the project's implementation and code, please refer to the individual files mentioned above.
 
 ## Usage
 
@@ -59,9 +76,9 @@ pip install -r requirements.txt
 ```
 You can execute the `S5.ipynb` notebook to perform the training and testing. Adjust the hyperparameters such as learning rate, momentum, batch size, and number of epochs to improve the model performance as desired.
 
-Below is the sample output provided by utils.
+Below are few results provided by utils functions at the respective places in S5 notebook.
 
-### 1. Sample Training and Test Stats
+### 1. Model Training and Test Stats
 
 ```
 display_model_stats(train_loss, train_accuracy, test_loss, test_accuracy)
@@ -69,7 +86,7 @@ display_model_stats(train_loss, train_accuracy, test_loss, test_accuracy)
 
 ![Train test statistics](Test_Images/model_stats_graphs.png)
 
-### 2. Sample Misclassified Examples (Predicted vs Actual):
+### 2. Sample Mis-classified Instances (Predicted vs Actual):
 
 ```
 plot_test_incorrect_predictions(incorrect_pred)
